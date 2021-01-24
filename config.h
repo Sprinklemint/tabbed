@@ -2,11 +2,11 @@
 
 /* appearance */
 static char font[] = "JetBrainsMono Nerd Font:style:medium:pixelsize=13";
-static const char* normbgcolor  = "#282c34";
+static const char* normbgcolor  = "#272A2B";
 static const char* normfgcolor  = "#cccccc";
-static const char* selbgcolor   = "#545862";
+static const char* selbgcolor   = "#1d2021";
 static const char* selfgcolor   = "#ffffff";
-static const char* urgbgcolor   = "#282c34";
+static const char* urgbgcolor   = "#272A2B";
 static const char* urgfgcolor   = "#cc0000";
 static const char before[]      = "";
 static const char after[]       = "";
