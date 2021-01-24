@@ -1,15 +1,15 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static char font[] = "JetBrainsMono:style:bold:pixelsize=13";
-static const char* normbgcolor  = "#263238";
+static char font[] = "JetBrainsMono Nerd Font:style:medium:pixelsize=13";
+static const char* normbgcolor  = "#282c34";
 static const char* normfgcolor  = "#cccccc";
-static const char* selbgcolor   = "#37474f";
+static const char* selbgcolor   = "#545862";
 static const char* selfgcolor   = "#ffffff";
-static const char* urgbgcolor   = "#263238";
+static const char* urgbgcolor   = "#282c34";
 static const char* urgfgcolor   = "#cc0000";
-static const char before[]      = "<";
-static const char after[]       = ">";
+static const char before[]      = "";
+static const char after[]       = "";
 static const char titletrim[]   = "...";
 static const int  tabwidth      = 200;
 static const Bool foreground    = True;
