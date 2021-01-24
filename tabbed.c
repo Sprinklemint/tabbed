@@ -387,7 +387,7 @@ drawbar(void)
 void
 drawtext(const char *text, XftColor col[ColLast])
 {
-	int i, j, x, y, h, len, olen;
+        int i, j, x, y, h, len, olen, tw;
 	char buf[256];
 	XftDraw *d;
 	XRectangle r = { dc.x, dc.y, dc.w, dc.h };
@@ -415,6 +415,11 @@ drawtext(const char *text, XftColor col[ColLast])
 		     buf[--i] = titletrim[--j])
 			;
 	}
+
+        tw =textnw(buf, len);
+	if (tw < dc.w)
+		x = dc.x + dc.w/2 - tw/2;
+
 
 	d = XftDrawCreate(dpy, dc.drawable, DefaultVisual(dpy, screen), DefaultColormap(dpy, screen));
 	XftDrawStringUtf8(d, &col[ColFG], dc.font.xfont, x, y, (XftChar8 *) buf, len);
