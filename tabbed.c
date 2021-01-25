@@ -16,6 +16,7 @@
 #include <X11/Xutil.h>
 #include <X11/XKBlib.h>
 #include <X11/Xft/Xft.h>
+#include <X11/Xresource.h>
 
 #include "arg.h"
 
@@ -50,6 +51,14 @@
 enum { ColFG, ColBG, ColLast };       /* color */
 enum { WMProtocols, WMDelete, WMName, WMState, WMFullscreen,
        XEmbed, WMSelectTab, WMLast }; /* default atoms */
+
+enum restype { STRING = 0, INTEGER = 1 }; /* xresources entry type */
+
+typedef struct {
+	char *name;
+	enum restype type;
+	void *dst;
+} ResourcePref;
 
 typedef union {
 	int i;
@@ -135,6 +144,8 @@ static void updatenumlockmask(void);
 static void updatetitle(int c);
 static int xerror(Display *dpy, XErrorEvent *ee);
 static void xsettitle(Window w, const char *str);
+static int xresload(XrmDatabase db, char *name, enum restype rtype, void *dst);
+static void confinit(void);
 
 /* variables */
 static int screen;
@@ -1282,6 +1293,54 @@ xsettitle(Window w, const char *str)
 	}
 }
 
+int
+xresload(XrmDatabase db, char *name, enum restype rtype, void *dst)
+{
+	char **sdst = dst;
+	int *idst   = dst;
+
+	char fullname[256], fullclass[256];
+	char *type;
+	XrmValue ret;
+
+	snprintf(fullname, sizeof(fullname), "%s.%s",
+	         wmname ? wmname : "tabbed", name);
+	snprintf(fullclass, sizeof(fullclass), "%s.%s",
+	         "Tabbed", name);
+	fullname[sizeof(fullname) - 1] = fullclass[sizeof(fullclass) - 1] = '\0';
+
+	XrmGetResource(db, fullname, fullclass, &type, &ret);
+	if (ret.addr == NULL || strncmp("String", type, 64))
+		return 1;
+
+	switch (rtype) {
+	case STRING:
+		*sdst = ret.addr;
+		break;
+	case INTEGER:
+		*idst = strtoul(ret.addr, NULL, 10);
+		break;
+	}
+	return 0;
+}
+
+void
+confinit(void)
+{
+	char *resm;
+	XrmDatabase db;
+	ResourcePref *p;
+
+	XrmInitialize();
+	resm = XResourceManagerString(dpy);
+	if (!resm)
+		return;
+
+	db = XrmGetStringDatabase(resm);
+	for (p = resources; p < resources + LENGTH(resources); p++)
+		xresload(db, p->name, p->type, p->dst);
+}
+
 void
 usage(void)
 {
@@ -1370,6 +1429,9 @@ main(int argc, char *argv[])
 		fprintf(stderr, "%s: no locale support\n", argv0);
 	if (!(dpy = XOpenDisplay(NULL)))
 		die("%s: cannot open display\n", argv0);
+
+        confinit();
+ 
 
 	setup();
 	printf("0x%lx\n", win);
