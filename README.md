@@ -24,4 +24,4 @@ See the man page for details.
 
 <img src="https://raw.githubusercontent.com/siduck76/personal-backup/master/rice%20flex/tabbed2.png">  
 <img src="https://raw.githubusercontent.com/siduck76/personal-backup/master/rice%20flex/tabbed1.png">
-<img src="https://cdn.discordapp.com/attachments/655947537538088962/785173692414033920/imageonline-co-merged-image.png"> 
+ 
