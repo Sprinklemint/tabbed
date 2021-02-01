@@ -27,8 +27,8 @@ See the man page for details.
  
 # Quick use 
 
-    <br>
-  open ST terminal with tabbed mode :  tabbed -c -r 2 st -w ""  (make a keybind for this)   <br>
-  open new tab : Ctrl + shift + enter <br>
+     open ST terminal with tabbed mode :  tabbed -c -r 2 st -w ""  (make a keybind for this)  
+     
+      open new tab : Ctrl + shift + enter <br>
   
   check the config.h for few more keybinds 
