@@ -25,3 +25,9 @@ See the man page for details.
 <img src="https://raw.githubusercontent.com/siduck76/personal-backup/master/rice%20flex/tabbed2.png">  
 <img src="https://raw.githubusercontent.com/siduck76/personal-backup/master/rice%20flex/tabbed1.png">
  
+# Quick use 
+
+` open ST terminal with tabbed mode :  tabbed -c -r 2 st -w "" 
+  open new tab : Ctrl + shift + enter `
+  
+  check the config.h for few more keybinds 
