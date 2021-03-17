@@ -22,8 +22,8 @@ See the man page for details.
 
 # Screenshots
 
-<img src="https://raw.githubusercontent.com/siduck76/personal-backup/master/rice%20flex/tabbed2.png">  
-<img src="https://raw.githubusercontent.com/siduck76/personal-backup/master/rice%20flex/tabbed1.png">
+<img src="https://github.com/siduck76/personal-backup/blob/master/rice%20flex/tabbed1.png">  
+<img src="https://github.com/siduck76/personal-backup/blob/master/rice%20flex/tabbed2.png">
  
 # Quick use 
 
