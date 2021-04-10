@@ -8,13 +8,8 @@ In order to build tabbed you need the Xlib header files.
 
 Installation
 ------------
-Edit config.mk to match your local setup (tabbed is installed into
-the /usr/local namespace by default).
 
-Afterwards enter the following command to build and install tabbed
-(if necessary as root):
-
-    make clean install
+    sudo make install 
 
 Running tabbed
 --------------
@@ -32,3 +27,16 @@ See the man page for details.
      open new tab : Ctrl + shift + enter <br>
   
   check the config.h for few more keybinds 
+  
+ - customize tabbed colors via xresources 
+ 
+``
+  example : 
+  
+  tabbed.selbgcolor:   #282c34
+  tabbed.selfgcolor:   #d6d8eb
+
+  tabbed.normfgcolor:  #9294a8
+  tabbed.normbgcolor:  #353b45
+  
+  ``
