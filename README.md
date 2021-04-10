@@ -27,7 +27,8 @@ See the man page for details.
      open new tab : Ctrl + shift + enter <br>
   
   check the config.h for few more keybinds 
-  
+ 
+ - NOTE : tabs will open appear only if more than one ST window is opened . 
  - customize tabbed colors via xresources 
  
 ```
