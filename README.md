@@ -30,7 +30,7 @@ See the man page for details.
   
  - customize tabbed colors via xresources 
  
-``
+```
   example : 
   
   tabbed.selbgcolor:   #282c34
@@ -39,4 +39,4 @@ See the man page for details.
   tabbed.normfgcolor:  #9294a8
   tabbed.normbgcolor:  #353b45
   
-  ``
+  ```
