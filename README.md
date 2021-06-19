@@ -42,3 +42,7 @@ See the man page for details.
   tabbed.normbgcolor:  #353b45
   
   ```
+  
+  # Credits 
+  
+  @6gk for centered title patch
